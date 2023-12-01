@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{single_car.car_title}} {% endblock %}
+{% block content %}
+
+{% load static %}
+{% load humanize %}
+
+<!-- Sub banner start -->
+<!--newADDED-->
+
+
+<!-- Sub banner start -->
+
+<div class="w3-hide-small">
+   
+  <div class="bg-white  sm:py-20">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+  <img alt="ecommerce" class=" border-gray-200" src="{{single_car.car_photo.url}}"  width="900" height="25">
+  
+  <div class="w3-center text-red">
+    <span class="px-4">
+    {% include 'includes/messages.html' %}
+     </span>  
+  </div>
+  
+<!--small-->
+<div class="modal-body">  
+  <div class="py-2">
+    <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-3.5 py-1.5 rounded dark:bg-red-900 dark:text-red-300"> Price Quote</span>
+     </div> 
+  <form action="{% url 'inquiry' %}" method="POST">
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}
+      <input type="hidden" name="user_id" value="{{user.id}}">
+    {% else %}
+      <input type="hidden" name="user_id" value="0">
+    {% endif %}
+
+    <input type="hidden" name="car_id" value="{{single_car.id}}">
+      <div class="form-group">
+          <span clas="py-2">
+              <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Name </label>
+          </span>
+        
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <input type="text" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name"
+            {% if user.is_authenticated %} value="{{user.first_name}}"  {% endif %} required>
+          </div>
+          <div class="w3-col s6 px-1">
+            <input type="text" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name"
+             {% if user.is_authenticated %} value="{{user.last_name}}"  {% endif %} required>
+          </div>
+        </div>
+      </div>
+
+  
+
+
+
+        <div class="form-group py-1">
+          <span clas="py-2">
+          <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Inquire For My</label>
+            </span>
+            <select id="sel1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" name="customer_need" >
+              <option value="Retail">Retail</option>
+              <option value="wholesale">wholesale</option>
+              <option value="Personal project">Personal Project</option>
+             
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+   
+
+      <div class="form-grou py-1">
+          <span clas="py-2">
+              <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">ADDRESS</label>
+          </span>
+     
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <input type="text" name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required>
+          </div>
+          <div class="w3-col s6 px-1">
+            <input type="text" name="state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="State" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group py-1 w3-hide-small w3-hide-large W3-hide-medium">
+        <span clas="py-2">
+            <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Connect To</label>
+        </span>
+      <input type="text" name="car_title" class="text-blue-600/100" value="{{ single_car.car_title }}" readonly>
+    </div>
+      <div class="form-group py-1">
+        <div class="row">
+          <div class="col">
+
+              <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Email </label>
+              </span>
+    
+            <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Email Address"
+             {% if user.is_authenticated %} value="{{user.email}}"  {% endif %} required>
+          </div>
+          <div class="col py-1">
+              <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Phone Number & Whatsapp Number </label>
+              </span>
+    
+            <input type="text" name="phone" placeholder="Phone Number " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group py-2">
+           <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Comments</label>
+              </span>
+ 
+        <textarea name="message" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message here (optional)"></textarea>
+      </div>
+      
+      <input type="submit" value="Enquiry Now" class="mb-2 w-full inline-block px-6 py-2.5 bg-blue-600  font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+      <button class="w3-btn w3-block w3-light-gray">
+        <a href="https://wa.me/7004197301">
+        <span class="text-blue"><i class="fa fa-whatsapp" aria-hidden="true"></i></span>
+       <small> Whatsapp से आर्डर करे </small> 
+      </a>
+      </button>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+
+<!-- Properties details page end -->
+<div class="w3-hide-large w3-hide-medium">
+   <br><br>
+  <div class="bg-white  py-4 sm:py-20">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+  <img alt="ecommerce" class=" border-gray-200" src="{{single_car.car_photo.url}}"  width="900" height="25">
+  
+  <div class="w3-center text-red">
+    <span class="px-4">
+    {% include 'includes/messages.html' %}
+     </span>  
+  </div>
+  
+<!--small-->
+<div class="modal-body">     
+  <div class="py-2">
+    <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-3.5 py-1.5 rounded dark:bg-red-900 dark:text-red-300"> Price Quote</span>
+     </div>      
+  <form action="{% url 'inquiry' %}" method="POST">
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}
+      <input type="hidden" name="user_id" value="{{user.id}}">
+    {% else %}
+      <input type="hidden" name="user_id" value="0">
+    {% endif %}
+
+    <input type="hidden" name="car_id" value="{{single_car.id}}">
+      <div class="form-group">
+          <span clas="py-2">
+              <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Name </label>
+          </span>
+        
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <input type="text" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name"
+            {% if user.is_authenticated %} value="{{user.first_name}}"  {% endif %} required>
+          </div>
+          <div class="w3-col s6 px-1">
+            <input type="text" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name"
+             {% if user.is_authenticated %} value="{{user.last_name}}"  {% endif %} required>
+          </div>
+        </div>
+      </div>
+
+  
+
+
+
+        <div class="form-group py-1">
+          <span clas="py-2">
+          <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Inquire For My</label>
+            </span>
+            <select id="sel1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" name="customer_need" >
+              <option value="Retail">Retail</option>
+              <option value="wholesale">wholesale</option>
+              <option value="Personal project">Personal Project</option>
+             
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+   
+
+      <div class="form-grou py-1">
+          <span clas="py-2">
+              <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">ADDRESS</label>
+          </span>
+     
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <input type="text" name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required>
+          </div>
+          <div class="w3-col s6 px-1">
+            <input type="text" name="state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="State" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group py-1 w3-hide-small">
+        <span clas="py-2">
+            <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Connect To</label>
+        </span>
+      <input type="text" name="car_title" class="text-blue-600/100" value="{{ single_car.car_title }}" readonly>
+    </div>
+      <div class="form-group py-1">
+        <div class="row">
+          <div class="col">
+
+              <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Email </label>
+              </span>
+    
+            <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Email Address"
+             {% if user.is_authenticated %} value="{{user.email}}"  {% endif %} required>
+          </div>
+          <div class="col py-1">
+              <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Phone Number & Whatsapp Number </label>
+              </span>
+    
+            <input type="text" name="phone" placeholder="Phone Number " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group py-2">
+           <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Comments</label>
+              </span>
+ 
+        <textarea name="message" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message here (optional)"></textarea>
+      </div>
+      
+      <input type="submit" value="Enquiry Now" class="mb-2 w-full inline-block px-6 py-2.5 bg-blue-600  font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+      <button class="w3-btn w3-block w3-light-gray">
+        <a href="https://wa.me/7004197301">
+        <span class="text-blue"><i class="fa fa-whatsapp" aria-hidden="true"></i></span>
+       <small> Whatsapp से आर्डर करे </small> 
+      </a>
+      </button>
+
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+
+<!--ENDADDED-->
+
+
+<!-- Properties details page end -->
+{% endblock %}

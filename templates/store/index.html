@@ -1,0 +1,649 @@
+{% extends 'store/layouts/main.html' %}
+
+{% block content %}
+    {% include 'store/inc/slider.html' %}
+
+   
+<div class="container my-4">
+    <div class="row w3-hide-large w3-hide-small w3-hide-medium">
+        <div class="col-md-12">
+            <div class="row owl-carousel owl-theme">
+            {% for item in trending_products %}
+                <div class="product_data item">
+                    <div class=" p-3 mb-5 bg-white rounded">
+                        <div class="card-body ">
+                            <a href="{% url 'productview' item.category.slug item.slug %}">
+                                <div class="category-image">
+                                    <img src="{{ item.product_image.url }}" alt="Product image" class="w-100"/>
+                                </div>
+                                <h6 class=""><strong>{{ item.name }}</strong> </h6>
+                            </a>
+                            <span class="float-start w3-opacity"><s> ₹ {{ item.original_price }}</s> </span>
+                            <span class="float-end"> ₹ {{ item.selling_price }}</span>
+                            <br>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    {% csrf_token %}
+                                    <input type="hidden" value="{{ item.id }}" class="prod_id">
+                                    <div class="input-group text-center mb-3">
+                                        <button class="input-group-text decrement-btn">-</button>
+                                        <input type="text" name="quantity" class="form-control qty-input text-center" value="1" >
+                                        <button class="input-group-text increment-btn">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-0">
+                                    <span class="mb-2">
+                                        {% if item.quantity > 0 %}
+                                            <button type="button" class="btn btn-primary btn-sm me-3 py-2 addToCartBtn">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+                                        {% else %}
+                                            <button type="button" class="btn btn-danger btn-sm me-3 py-2 disabled">Out of Stock</button>
+                                        {% endif %}
+                                    </span>   
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- small screen -->
+<div class="w3-hide-large w3-hide-medium w3-row  w3-padding-16">
+  <div class="bg-white ">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-base font-semibold leading-7 text-indigo-600"></h2>
+        <p class="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">Trending <span class="text-indigo-600"> Products</span></p>
+     </div>
+     <br>
+ <!---->
+ <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark  slider-nav-autoplay slider-nav-autopause slider-nav-animation slider-nav-animation-fadein slider-item-first-visible"  data-slider-nav-autoplay-interval="8000">
+  <ul class="slider-container py-4">
+      <li class="slide-visible">
+        <div class="relative flex w-21 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div class="relative mx-4 mt-4 h-26 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
+            <img
+              src="https://i.postimg.cc/x10msSLw/TMT-steel-bars-1-1.png"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="p-2">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="block font-sans text-base font-bold leading-relaxed text-blue-gray-900 antialiased">
+              
+              </p>
+              <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                
+              </p>
+            </div>
+            <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+               <div class="py-1">
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">TMT steel bars</span>
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Sheet</span>
+               </div>
+    
+              <div class="py-1">
+                <span class="bg-purple-100 ttext-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Steel Plipe</span>
+            
+                <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">TMT  Ring</span>
+               </div>
+            </p>
+          </div>
+          <div class="p-2 pt-0">
+            
+            <a href="/cements/3"> <button
+              class="block w-full select-none rounded-lg bg-gray-50 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+            Enquiry Now
+            </button>
+            </a>
+          </div>
+        </div>
+
+      </li>
+      <li class="slide-visible">
+        <div class="relative flex w-21 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div class="relative mx-4 mt-4 h-26 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
+            <img
+              src="https://i.postimg.cc/kMbrX2By/TMT-steel-bars-2-2.png"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="p-2">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="block font-sans text-base font-bold leading-relaxed text-blue-gray-900 antialiased">
+              
+              </p>
+              <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                
+              </p>
+            </div>
+            <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+               <div class="py-1">
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Plywood
+              </span>
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">WPC Panels</span>
+               </div>
+    
+              <div class="py-1">
+                <span class="bg-purple-100 ttext-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Louvers</span>
+            
+                <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Wall Panel</span>
+               </div>
+            </p>
+          </div>
+          <div class="p-2 pt-0">
+            <a href="/cements/3"> <button
+              class="block w-full select-none rounded-lg bg-gray-50 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+            Enquiry Now
+            </button>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="relative flex w-21 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div class="relative mx-4 mt-4 h-26 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
+            <img
+              src="https://i.postimg.cc/kgnWwYZh/TMT-steel-bars-3-1.png"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="p-2">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="block font-sans text-base font-bold leading-relaxed text-blue-gray-900 antialiased">
+            
+              </p>
+              <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                
+              </p>
+            </div>
+            <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+               <div class="py-1">
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400"> Western Toilet</span>
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Shower</span>
+               </div>
+    
+              <div class="py-1">
+                <span class="bg-purple-100 ttext-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Faucets</span>
+            
+                <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Wash Basins</span>
+               </div>
+            </p>
+          </div>
+          <div class="p-2 pt-0">
+            <a href="/cements/3"> <button
+              class="block w-full select-none rounded-lg bg-gray-50 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+            Enquiry Now
+            </button>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="relative flex w-21 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div class="relative mx-4 mt-4 h-26 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
+            <img
+              src="https://i.postimg.cc/L5JmHSn0/TMT-steel-bars-4-1.png"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="p-2">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="block font-sans text-base font-bold leading-relaxed text-blue-gray-900 antialiased">
+              
+              </p>
+              <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                
+              </p>
+            </div>
+            <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+               <div class="py-1">
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Ceramic Tile</span>
+              <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Glass tiles</span>
+               </div>
+    
+              <div class="py-1">
+                <span class="bg-purple-100 ttext-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Mosaic Tile</span>
+            
+                <span class="bg-purple-100 text-gray-800 text-xs font-medium mr-2 px-3.5 py-1.5 rounded  border-purple-400">Natural Stone Tile</span>
+               </div>
+            </p>
+          </div>
+          <div class="p-2 pt-0">
+            <a href="/cements/3"> <button
+              class="block w-full select-none rounded-lg bg-gray-50 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+            Enquiry Now
+            </button>
+            </a>
+          </div>
+        </div>
+      </li>
+  
+  </ul>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!---add new-->
+<!-- Page content -->
+<div class="w3-container py-2">
+  <div class="">
+    <div class=" max-w-2xl text-center mx-auto">
+      <h5 class="block font-bold text-gray-800 text-2xl md:text-5xl lg:text-6xl ">
+        How It 
+        <span class="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">Works</span>
+      </h5>
+    </div>
+  </div>
+  <br>
+  </div>
+<br>
+<div class="w3-container w3-hide-small">
+  <div class="flex flex-col justify-center divide-y divide-slate-200">
+    <div class="w-full max-w-3xl mx-auto">
+        <!-- Vertical Timeline #1 -->
+        <div class="-my-6">
+            <!-- Item #1 -->
+            <div class="relative pl-8 sm:pl-32 py-9 group">
+                <!-- Purple label -->
+                <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                    <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600  rounded-full">
+                      <img src="https://i.postimg.cc/yN0RwkJN/Screenshot-2023-10-06-200044bbb-1.png" width="90" height="10"/>
+                    </time>
+                    <div class="text-l font-bold text-slate-700">Once the form is submitted</div>
+                </div>
+                <!-- Content -->
+                <div class="text-slate-500">
+</div>
+            </div>
+            
+            <!-- Item #2 -->
+            <div class="relative pl-8 sm:pl-32 py-9 group">
+                <!-- Purple label -->
+
+                <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                    <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0  rounded-full">
+                      <img src="https://i.postimg.cc/2SZLZV7x/Screenshot-2023-10-06-195043-1.png" width="70" height="10"/>
+
+
+                    </time>
+                    <div class="text-l font-bold text-slate-700">we will assign a dedicated relationship manager to assist you.</div>
+                </div>
+                <!-- Content -->
+                <div class="text-slate-500"> </div>
+            </div>
+            
+            <!-- Item #3 -->
+            <div class="relative pl-8 sm:pl-32 py-9 group">
+                <!-- Purple label -->
+                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                    <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 rounded-full">
+                      <img src="https://i.postimg.cc/2yt3qDqJ/Screenshot-2023-10-06-195626vvvv-1.png" width="50" height="10"/></time>
+                    <div class="text-l font-bold text-slate-700"> price quote will be provided after scheduling an appointment.</div>
+                </div>
+                <!-- Content -->
+                <div class="text-slate-500">
+                </div>
+            </div>
+             <!-- Item #3 -->
+             <div class="relative pl-8 sm:pl-32 py-9 group">
+              <!-- Purple label -->
+              <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                  <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 rounded-full">
+                    <img src="https://i.postimg.cc/BnHtvRJY/Screenshot-2023-10-06-195929dfdfd-1.png" width="50" height="10"/></time>
+                  <div class="text-l font-bold text-slate-700">Upon placing your order, the product will be promptly delivered to your doorstep</div>
+              </div>
+              <!-- Content -->
+              <div class="text-slate-500">
+              </div>
+          </div>
+        </div>
+        <!-- End: Vertical Timeline #1 -->
+    </div>
+</div>
+</div>
+<!--laege-->
+<div class="w3-container w3-hide-large w3-hide-medium">
+  <div class="flex flex-col justify-center divide-y divide-slate-200">
+    <div class="w-full max-w-3xl mx-auto">
+        <!-- Vertical Timeline #1 -->
+        <div class="-my-6">
+            <!-- Item #1 -->
+            <div class="relative pl-8 sm:pl-32 py-4 group">
+                <!-- Purple label -->
+                <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                    <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600  rounded-full">
+                      <img src="https://i.postimg.cc/yN0RwkJN/Screenshot-2023-10-06-200044bbb-1.png" width="50" height="10"/>
+                    </time>
+                    <div class="font-medium  text-base text-slate-700">Once the form is submitted</div>
+                </div>
+                <!-- Content -->
+                <div class="text-slate-500">
+</div>
+            </div>
+            
+            <!-- Item #2 -->
+            <div class="relative pl-8 sm:pl-32 py-4 group">
+                <!-- Purple label -->
+
+                <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                    <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0  rounded-full">
+                      <img src="https://i.postimg.cc/2SZLZV7x/Screenshot-2023-10-06-195043-1.png" width="30" height="10"/>
+
+
+                    </time>
+                    <div class=" font-medium  text-base text-slate-700">we will assign a dedicated relationship manager to assist you.</div>
+                </div>
+                <!-- Content -->
+                <div class="text-slate-500"> </div>
+            </div>
+            
+            <!-- Item #3 -->
+            <div class="relative pl-8 sm:pl-32 py-2 group">
+                <!-- Purple label -->
+                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                    <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 rounded-full">
+                      <img src="https://i.postimg.cc/2yt3qDqJ/Screenshot-2023-10-06-195626vvvv-1.png" width="30" height="10"/></time>
+                    <div class=" font-medium  text-base text-slate-700"> Price quote will be provided after scheduling an appointment.</div>
+                </div>
+                <!-- Content -->
+                <div class="text-slate-500">
+                </div>
+            </div>
+             <!-- Item #3 -->
+             <div class="relative pl-8 sm:pl-32 py-2 group">
+              <!-- Purple label -->
+              <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                  <time class="sm:absolute left-0 translate-y-1.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 rounded-full">
+                    <img src="https://i.postimg.cc/BnHtvRJY/Screenshot-2023-10-06-195929dfdfd-1.png" width="50" height="10"/></time>
+                  <div class="font-medium  text-base text-slate-700">Upon placing your order, the product will be promptly delivered to your doorstep</div>
+              </div>
+              <!-- Content -->
+              <div class="text-slate-500">
+              </div>
+          </div>
+        </div>
+        <!-- End: Vertical Timeline #1 -->
+    </div>
+</div>
+</div>
+<!--largend-->
+<div class="w3-hide-large w3-hide-medium py-12">
+<div class="w3-content w3-container  style="max-width:2000px;>
+  <br>
+  <div class="mx-auto max-w-2xl lg:text-center">
+    <h6 class="text-base font-semibold leading-7 text-indigo-600"></h2>
+    <p class="mt-2 text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why <span class="text-indigo-600">Us !</span></p>
+ </div>
+<!--small -->
+
+<div class=" w3-conatiner      swiffy-slider slider-item-show3 slider-nav-dark slider-nav-visible slider-nav-outside slider-item-snapstart my-3 slider-nav-sm my-xl-5 slider-indicators-square slider-indicators-outside slider-indicators-dark slider-nav-animation-slideup slider-nav-animation slider-item-first-visible slider-nav-autoplay slider-nav-autopause" data-slider-nav-autoplay-interval="8000">
+  <div class="slider-container">
+      <div class="bg-indigo-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+          <div class="" >
+            <img src="https://i.postimg.cc/05Zk2mhw/Add-a-little-bit-of-body-text-23-1-1.png" width="50" height="10"/></time>
+                  
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Trusted Quality</h3>
+              Rest assured, all products are sourced from reliable manufacturers, ensuring top-notch quality for your construction projects. 
+          </div>
+      </div>
+    
+      <div class="bg-indigo-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+        <div class="" >
+          <img src="https://i.postimg.cc/kMSHTdvX/Add-a-little-bit-of-body-text-24-1-1.png" width="50" height="10"/></time>
+                
+            <h3 class="mb-0 h6" style="color:#DF1E1E;">Timely Delivery</h3>
+            We value your time. Expect prompt and reliable delivery to your doorstep.
+        </div>
+    </div>
+
+    <div class="bg-indigo-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+      <div class="" >
+        <img src="https://i.postimg.cc/PqN3YGqH/Add-a-little-bit-of-body-text-25-1-1.png" width="50" height="10"/></time>
+              
+          <h3 class="mb-0 h6" style="color:#DF1E1E;">Competitive Pricing</h3>
+          Enjoy competitive prices without compromising on the excellence of the materials you need. </div>
+  </div>
+  <div class="bg-indigo-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+    <div class="" >
+      <img src="https://i.postimg.cc/MpnVYz19/Add-a-little-bit-of-body-text-26-1-1.png" width="50" height="10"/></time>
+            
+        <h3 class="mb-0 h6" style="color:#DF1E1E;">Customer Satisfaction</h3>
+        Your satisfaction is our priority. We go the extra mile to ensure a delightful shopping experience </div>
+</div>
+  </div>
+  </div>
+
+  <div class="slider-indicators" style="justify-content:right;margin-left: 3rem;">
+ 
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endddddddddddddddddddddd-->
+
+
+
+
+<!--large-->
+<div class="w3-hide-small ">
+  <br><br>
+  <div class="bg-white">
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-indigo-600"></h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why <span class="text-indigo-600">Us !</span></p>
+     </div>
+     <br>
+     <div class="swiffy-slider slider-item-show3 slider-nav-dark slider-nav-visible slider-nav-outside slider-item-snapstart my-3 slider-nav-sm my-xl-5 slider-indicators-square slider-indicators-outside slider-indicators-dark slider-nav-animation-slideup slider-nav-animation slider-item-first-visible slider-nav-autoplay slider-nav-autopause" data-slider-nav-autoplay-interval="8000">
+      <div class="slider-container">
+        <div class="bg-stone-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+          <div class="" >
+            <img src="https://i.postimg.cc/05Zk2mhw/Add-a-little-bit-of-body-text-23-1-1.png" width="50" height="10"/></time>
+                  
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Trusted Quality</h3>
+              Rest assured, all products are sourced from reliable manufacturers, ensuring top-notch quality for your construction projects. 
+          </div>
+      </div>
+      <div class="bg-stone-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+        <div class="" >
+          <img src="https://i.postimg.cc/kMSHTdvX/Add-a-little-bit-of-body-text-24-1-1.png" width="50" height="10"/></time>
+                
+            <h3 class="mb-0 h6" style="color:#DF1E1E;">Timely Delivery</h3>
+            We value your time. Expect prompt and reliable delivery to your doorstep.
+        </div>
+    </div>
+        
+    <div class="bg-stone-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow">
+      <div class="" >
+        <img src="https://i.postimg.cc/PqN3YGqH/Add-a-little-bit-of-body-text-25-1-1.png" width="50" height="10"/></time>
+              
+          <h3 class="mb-0 h6" style="color:#DF1E1E;">Competitive Pricing</h3>
+          Enjoy competitive prices without compromising on the excellence of the materials you need. </div>
+  </div>
+  <div class="bg-stone-50 border-indigo-600 shadow-md p-6 bg-white border border-gray-200 rounded-lg shadow ">
+    <div class="" >
+      <img src="https://i.postimg.cc/MpnVYz19/Add-a-little-bit-of-body-text-26-1-1.png" width="50" height="10"/></time>
+            
+        <h3 class="mb-0 h6" style="color:#DF1E1E;">Customer Satisfaction</h3>
+        Your satisfaction is our priority. We go the extra mile to ensure a delightful shopping experience </div>
+</div>
+    
+      </div>
+  
+  
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+
+
+
+
+
+
+
+<footer class="bg-indigo-950 rounded-lg shadow  m-4 w3-hide-large w3-hide-medium">
+
+  <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+         
+          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 ">
+              <li>
+                  <a href="/marbles/" class="mr-4 hover:underline md:mr-6 ">About US</a>
+              </li>
+              <li>
+                  <a href="/tiles/" class="mr-4 hover:underline md:mr-6">Terms And Condition</a>
+              </li>
+              <li>
+                  <a href="#" class="mr-4 hover:underline md:mr-6 ">Careers</a>
+              </li>
+          
+          </ul>
+      </div>
+      <span class="block text-lg text-white sm:text-center ">Contact Us</span>
+      <span class="block text-sm text-white sm:text-center ">Bihar, India</span>
+      <span class="block text-sm text-white sm:text-center ">7004197301</span>
+      <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8 text-white" />
+      <span class="block text-sm text-white sm:text-center ">© 2023 infrablue material technologies pvt ltd. All Rights Reserved.</span>
+  </div>
+</footer>
+
+
+
+
+
+  <!-- Footer -->
+
+  
+<!--footer-->
+
+<!-- component -->
+<!-- Foooter -->
+<section class="bg-white w3-hide-small">
+  <div class="max-w-screen-xl px-4 py-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+      <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+          <div class="px-5 py-2">
+              <a href="/marbles/" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                  About Us
+              </a>
+          </div>
+          <div class="px-5 py-2">
+              <a href="/tiles/" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                Terms And Condition
+              </a>
+          </div>
+          <div class="px-5 py-2">
+              <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                  Careers
+              </a>
+          </div>
+       
+          </div>
+          
+      </nav>
+      <div class="flex justify-center mt-8 space-x-6">
+      
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">Facebook</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+              </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">Instagram</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+              </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">Twitter</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">GitHub</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+              </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">Dribbble</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path>
+              </svg>
+          </a>
+      </div>
+      <p class="mt-8 text-base leading-6 text-center text-gray-400">
+       Bihar ,India ,  email- abhishek@infrablue.com
+    </p>
+      <p class="mt-8 text-base leading-6 text-center text-gray-400">
+          © 2023 infrablue material technologies pvt ltd, All rights reserved.
+      </p>
+  </div>
+</section>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:false,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
+
+</script>
+
+{% endblock scripts %}

@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+
+{% block title %} | tileSearch Result {% endblock %}
+{% block content %}
+{% load humanize %}
+<br><br>
+<div class="px-12 w3-row ">
+  <br>
+  <div class="w3-hide-small">
+ 
+  </div>
+  <br>
+  <div class="w3-hide-small  w3-padding-34">
+    <div class="w3-col  s9 ">
+
+<div class="">
+    <!--Card 1-->
+   
+    <div class="rounded overflow-hidden ">
+      <div class="w3-row">
+        <div class="w3-col s6 ">
+          <a href="/tiles/1">
+          <img class="card-img-top " src="https://i.postimg.cc/nLvDPzdb/Bathroom-Accessories-15.png" alt="Card image cap">
+           </a>          
+        </div>
+        <div class="w3-col s6 w3-dark-grey w3-center">
+          <a href="/tiles/2">
+          <img class="card-img-top " src="https://i.postimg.cc/1zc8Kdty/Bathroom-Accessories-16.png" alt="Card image cap">
+          </a> 
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+    </div>
+    <div class="w3-col s3   w3-hide-small">
+        <div class="search-box-4 sb-8">
+
+            <div class="">
+                <form action="{% url 'tilesearch' %}" method="" class="">
+                    <div class="py-1" style="width: 16rem;">
+                       <h6 class="text-black"> <b>Search Tiles , Marbles</b></h6>
+                      </div>
+                    <div class="mb-2">
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                            <option selected="true" disabled="disabled">Model</option>
+                            {% for model in model_search %}
+                              <option value="{{model}}">{{model}}</option>
+                            {% endfor %}
+                        </select> </div> 
+                    <div class="flex items-start mb-2">
+                      <div class="form-group">
+                        <button class="w3-black w3-button w3-round w3-block px-24">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+  </div>
+<!-- model-->
+
+<div class="w3-row w3-hide-small">
+  <h5 class="w3-container w3-padding-16 w3-text-black"> <i class="fa fa-building" aria-hidden="true"></i> <b>Top Product</b></h5>
+  <div class="w3-col m3  w3-center">
+    <img class="card-img-top "  src="https://i.postimg.cc/C53RLp5p/TMT-steel-bars-5.png" alt="Card image cap">
+        
+  </div>
+  <div class="w3-col m3 w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/wjc1HPdn/TMT-steel-bars-6.png" alt="Card image cap">
+  </div>
+  <div class="w3-col m3  w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/ZqQynMwH/TMT-steel-bars-7.png" alt="Card image cap">
+  </div>
+  <div class="w3-col m3 w3-dark-grey w3-center">  <img class="card-img-top " src="https://i.postimg.cc/kgXVcmZw/TMT-steel-bars-8.png" alt="Card image cap">
+  </div>
+ 
+  
+ <br><br><br>
+
+ <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+  <h5 class="w3-text-black">About Tiles / Marbles</h5>
+  <hr style="width:200px" class="w3-gray">
+  <p>"Revamp your living spaces with our Classic Ceramic Floor Tile in Ivory Travertine. This 12x12-inch tile exudes timeless elegance with its authentic travertine stone look, while its durable ceramic construction ensures longevity. Versatile and neutral, it complements various interior styles, making it ideal for kitchens, living rooms, and bathrooms. The matte finish adds sophistication, and easy maintenance guarantees lasting beauty. Whether you're upgrading your home or embarking on a light commercial project, this tile promises to elevate any space. Bring enduring charm and quality to your floors with our Classic Ceramic Floor Tile - Ivory Travertine. Order now for a touch of luxury.".</p>
+</div>
+</div>
+
+<!--small screen-->
+<div class='w3-hide-large w3-hide-medium'>
+  <div class=" ">
+    <div class="">
+
+        <div class="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200  sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <form action="{% url 'tilesearch' %}" method="" class="">
+                <div class="py-1" style="width: 10rem;">
+                     <p> 
+                      Search Tiles & Marble
+                     </p>
+                  </div>
+                <div class="mb-2">
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                        <option selected="true" disabled="disabled">Model</option>
+                        {% for model in model_search %}
+                          <option value="{{model}}">{{model}}</option>
+                        {% endfor %}
+                    </select> </div> 
+      
+                  
+            
+                                    
+                <div class="flex items-start mb-2">
+                  <div class="form-group">
+                    <button class="w3-light-gray w3-button w3-round w3-block">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+                </div>
+                </form>
+        </div>
+    </div>
+
+</div>
+<div class=" py-8  max-w-9xl   grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-4 gap-2">
+  <!--Card 1-->
+
+  <div class="w3-row">
+    <div class="w3-col s12 ">
+      <a href="/tiles/1">
+      <img class="card-img-top " src="https://i.postimg.cc/nLvDPzdb/Bathroom-Accessories-15.png" alt="Card image cap">
+       </a>          
+    </div>
+    <div class="w3-col s12 ">
+      <a href="/tiles/2">
+      <img class="card-img-top " src="https://i.postimg.cc/1zc8Kdty/Bathroom-Accessories-16.png" alt="Card image cap">
+      </a> 
+    </div>
+  </div>
+
+</div>
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+  <h4 class="w3-container w3-padding-8 w3-text-black"> <i class="fa fa-building" aria-hidden="true"></i> <b>Top Product</b></h4>
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/C53RLp5p/TMT-steel-bars-5.png" style="width:100%">
+   
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/wjc1HPdn/TMT-steel-bars-6.png" style="width:100%">
+   
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/ZqQynMwH/TMT-steel-bars-7.png" style="width:100%">
+   
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/kgXVcmZw/TMT-steel-bars-8.png" style="width:100%">
+   
+  </div>
+
+  <br>
+
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h5 class="w3-text-black">About Tiles</h5>
+    <hr style="width:200px" class="w3-gray">
+    <p>cement—an indispensable construction material that forms the backbone of modern infrastructure. Here, we delve into the world of cement, exploring its history, composition, applications, and sustainable future.
+
+      Discover the fascinating evolution of cement, from ancient techniques to its advanced form today. Unravel the chemistry behind its creation, where raw materials like limestone and clay undergo intricate processes to yield the potent binding agent we rely on.
+      
+      Explore the versatility of cement and its wide range of applications in the construction industry, from towering buildings to robust bridges and durable roads. Learn about the latest innovations in cement technology, including eco-friendly practices that contribute to a greener future.
+      
+      For DIY enthusiasts and homeowners, find valuable tips and tricks for incorporating cement into your projects, creating concrete masterpieces and functional structures.
+      
+      Our webpage offers a comprehensive resource with frequently asked questions and interactive forums, connecting you with like-minded individuals and industry experts.
+      
+      Join us on this journey of discovery as we unveil the secrets of cement, paving the way for a stronger, sustainable, and more resilient world. Together, let's build a future that stands the test of time, powered by the enduring strength of cement.</p>
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+
+{% block title %} | marbleSearch Result {% endblock %}
+{% block content %}
+{% load humanize %}
+<br>
+<div class="px-12 w3-row w3-padding-34 ">
+  <br>
+  <div class="w3-container w3-center w3-padding-34 w3-hide-small"> 
+  
+    <h5 class="w3-center py-2"><span class="w3-tag"></span></h5>
+   
+  </div> 
+    <div class="w3-col  s9 ">
+
+<div class="w3-hide-small">
+<div class="">
+    <!--Card 1-->
+
+    <div class="max-w-9xl  ">
+      <!--Card 1-->
+      
+      <div class="rounded overflow-hidden ">
+        <div class="w3-row">
+          <div class="w3-col s6 ">
+            <a href="/marbles/3">
+            <img class="card-img-top " src="https://i.postimg.cc/VvgjBS2g/Bathroom-Accessories-19.png" alt="Card image cap">
+             </a>          
+          </div>
+          <div class="w3-col s6 ">
+            <a href="/marbles/4">
+            <img class="card-img-top " src="https://i.postimg.cc/pXx9PX3V/Bathroom-Accessories-21.png" alt="Card image cap">
+            </a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+    </div>
+    <div class="w3-col s3  w3-center w3-hide-small">
+        <div class="search-box-4 sb-4">
+
+            <div class="p-4 w-full max-w-sm  sm:p-6 md:p-8 ">
+                <form action="{% url 'marblesearch' %}" method="" class="">
+                    <div class="py-1" style="width: 16rem;">
+                      <p>Search Sanitaryware, Bathrrom Item</p> 
+                    </div>
+                    <div class="mb-2">
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                            <option selected="true" disabled="disabled">Model</option>
+                            {% for model in model_search %}
+                              <option value="{{model}}">{{model}}</option>
+                            {% endfor %}
+                        </select> </div> 
+                   
+            
+                                        
+                    <div class="flex items-start mb-2">
+                      <div class="form-group">
+                        <button class="w3-light-gray w3-button w3-round w3-block px-24">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="w3-row w3-hide-small">
+    <h5 class="w3-container w3-padding-16 w3-text-black"> <i class="fa fa-building" aria-hidden="true"></i> <b>Top Product</b></h5>
+    <div class="w3-col m3  w3-center">
+      <img class="card-img-top "  src="https://i.postimg.cc/cH2bfzyT/TMT-steel-bars-9.png" alt="Card image cap">
+          
+    </div>
+    <div class="w3-col m3 w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/qR6zmNS0/TMT-steel-bars-12.png" alt="Card image cap">
+    </div>
+    <div class="w3-col m3  w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/hGxkpgs6/TMT-steel-bars-10.png" alt="Card image cap">
+    </div>
+    <div class="w3-col m3 w3-dark-grey w3-center">  <img class="card-img-top " src="https://i.postimg.cc/L6XGGjvz/TMT-steel-bars-11.png" alt="Card image cap">
+    </div>
+   
+    
+   <br><br><br>
+  
+   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h5 class="w3-text-black">About Sanitaryware / Bathroom item</h5>
+    <hr style="width:200px" class="w3-gray">
+    <p>Santariware offers an elegant and functional range of faucets, perfect for upgrading your home's style and performance. These high-quality products combine contemporary design with cutting-edge technology, providing a seamless water flow and exceptional durability. Whether you seek a sleek modern look or a timeless classic finish, Santariware's faucets cater to diverse tastes. Crafted with precision and premium materials, they ensure long-lasting beauty and functionality, making them a valuable addition to any kitchen or bathroom. Elevate your space with Santariware's top-notch faucets, offering a delightful blend of aesthetics and efficiency that enhances your daily water experiences. Shop online today to discover the perfect faucet for your home.</p>
+  </div>
+  </div>
+
+
+
+
+<!--small-->
+<div class="w3-hide-large w3-hide-medium">
+  <div class="py-2">
+    <form action="{% url 'marblesearch' %}" method="" class="">
+        <div class="py-1" style="width: 20.5rem;">
+         <h5>Search Sanitaryware & Bathroom item
+         </h5></div>
+        <div class="mb-2">
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                <option selected="true" disabled="disabled">Model</option>
+                {% for model in model_search %}
+                  <option value="{{model}}">{{model}}</option>
+                {% endfor %}
+            </select> </div> 
+      
+                          
+        <div class="flex items-start mb-2">
+          <div class="form-group">
+            <button class="w3-black w3-button w3-round w3-block ">
+                <i class="fa fa-search"></i> Search
+            </button>
+        </div>
+        </form>
+</div>
+
+<!--card-->
+
+<div class="py-4">
+ 
+  <div class="  py-2 ">
+      <!--Card 1-->
+      <div class="rounded overflow-hidden ">
+        <div class="w3-row">
+          <div class="w3-col s12 ">
+            <a href="/marbles/3">
+            <img class="card-img-top " src="https://i.postimg.cc/VvgjBS2g/Bathroom-Accessories-19.png" alt="Card image cap">
+             </a>          
+          </div>
+          <div class="w3-col s12 ">
+            <a href="/marbles/4">
+            <img class="card-img-top " src="https://i.postimg.cc/pXx9PX3V/Bathroom-Accessories-21.png" alt="Card image cap">
+            </a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+<div class="w3-row w3-hide-large w3-hide-medium">
+  <h5 class="w3-container w3-padding-16 w3-text-black"> <i class="fa fa-building" aria-hidden="true"></i> <b>Top Product</b></h5>
+  <div class="w3-col m3  w3-center">
+    <img class="card-img-top "  src="https://i.postimg.cc/cH2bfzyT/TMT-steel-bars-9.png" alt="Card image cap">
+        
+  </div>
+  <div class="w3-col m3 w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/qR6zmNS0/TMT-steel-bars-12.png" alt="Card image cap">
+  </div>
+  <div class="w3-col m3  w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/hGxkpgs6/TMT-steel-bars-10.png" alt="Card image cap">
+  </div>
+  <div class="w3-col m3">  <img class="card-img-top " src="https://i.postimg.cc/L6XGGjvz/TMT-steel-bars-11.png" alt="Card image cap">
+  </div>
+ 
+  
+ <br><br><br>
+
+ <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+  <h5 class="w3-text-black">About Sanitaryware / Bathroom item</h5>
+  <hr style="width:200px" class="w3-gray">
+  <p>Santariware offers an elegant and functional range of faucets, perfect for upgrading your home's style and performance. These high-quality products combine contemporary design with cutting-edge technology, providing a seamless water flow and exceptional durability. Whether you seek a sleek modern look or a timeless classic finish, Santariware's faucets cater to diverse tastes. Crafted with precision and premium materials, they ensure long-lasting beauty and functionality, making them a valuable addition to any kitchen or bathroom. Elevate your space with Santariware's top-notch faucets, offering a delightful blend of aesthetics and efficiency that enhances your daily water experiences. Shop online today to discover the perfect faucet for your home.</p>
+</div>
+</div>
+<br><br><br>
+
+
+</div>
+
+
+{% endblock %}

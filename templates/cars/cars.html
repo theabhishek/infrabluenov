@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+
+{% block title %} | Our cars Inventory {% endblock %}
+{% block content %}
+
+{% load humanize %}
+<!-- Sub banner start -->
+
+
+<div class="w3-row w3-container ">
+
+    <div class="w3-col s8  w3-hide-small max-w-7xl">
+      <br><br><br>
+        <p>
+            <div class="">
+             
+<!-- Flickity HTML init -->
+<br>
+<!-- Flickity HTML init -->
+<div class="carousel px-12"
+  data-flickity='{ "freeScroll": true, }'>
+  <div class="carousel-cell">
+    <img src="https://i.postimg.cc/5yzsm8Qf/eee.png" alt="Norway" style="width:80%">
+  
+  </div>
+  
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+</div>
+
+
+
+
+
+              </div>
+        </p>
+      </div>
+  
+<!--big screen-->
+<div class="">
+    <div class="w3-col s3 w3-container py-2 w3-hide-small">
+      <br><br>
+        <br>
+      <div class="py-2 w3-hide-small" style="width: 21rem;">
+        <img class="card-img-top " src="https://i.postimg.cc/wvhZ1JmZ/free-Deliverydklfdsfdsfsf-1.png" alt="Card image cap">
+      </div>
+<form action="{% url 'search' %}" method="" class="w3-hide-small">
+    <div class="mb-2">
+        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+            <option selected="true" disabled="disabled">Model</option>
+            {% for model in model_search %}
+              <option value="{{model}}">{{model}}</option>
+            {% endfor %}
+        </select> </div> 
+    <div class="mb-2">
+        <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="city">
+            <option selected="true" disabled="disabled">Location</option>
+            {% for city in city_search %}
+              <option value="{{city}}">{{city}}</option>
+            {% endfor %}
+        </select> </div> 
+
+
+
+
+                
+    
+    <div class="flex items-start mb-6">
+      <div class="form-group">
+        <button class="w3-black w3-button w3-round w3-block">
+            <i class="fa fa-search"></i> Search 
+        </button>
+    </div>
+    </form>
+
+    </div>   
+</div>
+<!--smallscreen-->
+
+<div class="w3-col  w3-hide-large w3-hide-medium">
+  <br><br>
+  <div class="py-4" style="width: 16rem;">
+    <img class="card-img-top " src="https://i.postimg.cc/wvhZ1JmZ/free-Deliverydklfdsfdsfsf-1.png" alt="Card image cap">
+
+  </div>
+
+<!--big screen-->
+<form action="{% url 'search' %}" method="" class="">
+ 
+  <div class="mb-2 ">
+      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+          <option selected="true" disabled="disabled">Model</option>
+          {% for model in model_search %}
+            <option value="{{model}}">{{model}}</option>
+          {% endfor %}
+      </select> </div> 
+  <div class="mb-2">
+      <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="city">
+          <option selected="true" disabled="disabled">Location</option>
+          {% for city in city_search %}
+            <option value="{{city}}">{{city}}</option>
+          {% endfor %}
+      </select> </div> 
+              
+  
+  <div class="flex items-start mb-6">
+    <div class="form-group">
+      <button class="w3-button w3-block w3-black w3-round ">
+          <i class="fa fa-search"></i> Search
+      </button>
+  </div>
+  </form>
+</div>   
+    <!--bigscreen-->
+      <div class="w3-col   w3-center w3-hide-large w3-hide-medium">
+        <p>
+            <div class="">
+                
+            </div>
+        </p>
+      </div>
+
+  </div>
+  <br><br><br><br>
+         
+
+<!-- Featured car end -->
+
+
+<!-- Intro section end -->
+<div class="w3-hide-small w3-container w3-row w3-row-padding w3-padding-16">
+
+<br><br>
+  <div class="w3-col s3 w3-margin-bottom">
+   <span class="w3-center">
+    <img src="https://i.postimg.cc/cHTG0nZr/Untitled-designhhhhhhhh.png" alt="Norway" style="width:100%">
+  </span>
+    <div class="w3-container w3-white">
+      <p class="w3-text-gray"> 4 grades of TMT steel bars :- Fe-415, Fe-500, FE-550, Fe-600</p>
+      <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+
+    </div>
+  </div>
+  <div class="w3-col s3 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/3xhKqqbJ/Untitled-designmmm.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-container w3-white">
+        <p class="w3-text-orange">Stainless Steel Sheet, Carbon Steel Plate, Other</p>
+    <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+
+       </div>
+     </div>
+     <div class="w3-col s3 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/JhxXs8Jc/Untitled-design-H-G.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-container w3-white">
+         <p class="w3-text-gray"> Stainless Steel PIipe &  Rectangular Pipe, other </p>
+
+
+       </div>
+     </div>
+  <div class="w3-col s3 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/mr06dK89/Untitled-designmmmmmmmmmmmmmmmmmmmmmmmm.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-container w3-white">
+         <p class="w3-text-gray">Iron 8mm TMT Bar Ring, Fe 500D,  Binding Wire,Per Pack, 10-20 kg,</p>
+         <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">ron 8mm TMT Bar Ring, Grade: Fe 500D</p>
+
+       </div>
+     </div>
+</div>
+<!-- small screen -->
+<div class="w3-hide-large w3-hide-medium w3-container w3-row  w3-padding-16">
+
+
+<div class="w3-col s6 w3-margin-bottom">
+ <span class="w3-center">
+  <img src="https://i.postimg.cc/cHTG0nZr/Untitled-designhhhhhhhh.png" alt="Norway" style="width:100%">
+</span>
+  <div class=" w3-white">
+    <p class="w3-text-gray px-1"><small>Fe-415, Fe-500, FE-550, Fe-600</small></p>
+
+  </div>
+</div>
+<div class="w3-col s6 w3-margin-bottom">
+    <span class="w3-center">
+     <img src="https://i.postimg.cc/3xhKqqbJ/Untitled-designmmm.png" alt="Norway" style="width:100%">
+   </span>
+     <div class="w3-white">
+      <p class="w3-text-gray"><small>Stainless Steel,Carbon Steel Plate, Other</small></p>
+
+     </div>
+   </div>
+
+   <div class="w3-col s6 w3-margin-bottom">
+    <span class="w3-center">
+      <span class="w3-center">
+        <img src="https://i.postimg.cc/JhxXs8Jc/Untitled-design-H-G.png" alt="Norway" style="width:100%">
+      </span>
+        <div class=" w3-white">
+          <p class="w3-text-gray"> Stainless Steel & Rectangular Pipe</p>
+    </div>
+   </div>
+<div class="w3-col s6 w3-margin-bottom">
+  <span class="w3-center">
+    <img src="https://i.postimg.cc/mr06dK89/Untitled-designmmmmmmmmmmmmmmmmmmmmmmmm.png" alt="Norway" style="width:100%">
+  </span>
+    <div class=" w3-white">
+      <p class="w3-text-gray">TMT Bar Ring, Binding Wire,</p>
+      <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">ron 8mm TMT Bar Ring, Grade: Fe 500D</p>
+
+</div>
+   </div>
+   </div>
+<br><br>
+
+<div class="w3-hide-small w3-hide-medium w3-hide-large swiffy-slider slider-item-show4 slider-nav-outside slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio-32x9 bg-white shadow-lg py-3 py-lg-4" data-slider-nav-autoplay-interval="2000">
+  <div class="slider-container">
+      <div><img src="../assets/img/brandlogos/css-3.svg" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/DWLogoColor_sm.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/javascript-1.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/bootstrap-5.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/eslint-1.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/github-2.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/html-1.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/svelte-wordmark-1.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/next-js.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/webpack-icon.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/react-2.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/star-wars-4.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/vue-9.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/meteor-5.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/nuxt-2.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/nodejs-1.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/prettier-2.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/angular-icon-1.svg" loading="lazy" alt="..."></div>
+      <div><img src="../assets/img/brandlogos/github-icon.svg" loading="lazy" alt="..."></div>
+  </div>
+
+  <button type="button" class="slider-nav" aria-label="Go left"></button>
+  <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+</div>
+
+
+{% endblock %}

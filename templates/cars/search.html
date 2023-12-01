@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+
+
+{% block title %} | Search Result {% endblock %}
+{% block content %}
+{% load humanize %}
+
+
+
+<br>
+<div class="px-12 w3-row w3-padding-34 ">
+  <br>
+  <br>
+    <div class="w3-col  s9 ">
+
+<div class="w3-hide-small">
+<div class="   ">
+    <!--Card 1-->
+
+    <div class="rounded overflow-hidden  py-2">
+      <div class="rounded overflow-hidden ">
+        <div class="w3-row">
+          <div class="w3-col s4 ">
+            <a href="/cars/1">
+            <img class="card-img-top " src="https://i.postimg.cc/7YtNn9XT/Bathroom-Accessories-4.png" alt="Card image cap">
+             </a>          
+          </div>
+          <div class="w3-col s4">
+            <a href="/cars/5">
+            <img class="card-img-top " src="https://i.postimg.cc/nzTmcVPQ/Bathroom-Accessories-5.png" alt="Card image cap">
+            </a> 
+          </div>
+          <div class="w3-col s4">
+            <a href="/cars/4">
+            <img class="card-img-top " src="https://i.postimg.cc/T27bzwbz/Bathroom-Accessories-6.png" alt="Card image cap">
+            </a> 
+          </div>
+          <div class="w3-col s4 ">
+            <a href="/cars/3">
+            <img class="card-img-top " src="https://i.postimg.cc/8cMjf1yH/Bathroom-Accessories-8.png" alt="Card image cap">
+             </a>          
+          </div>
+          <div class="w3-col s4">
+            <a href="/cars/7">
+            <img class="card-img-top " src="https://i.postimg.cc/X7YRv2pZ/Bathroom-Accessories-10.png" alt="Card image cap">
+            </a> 
+          </div>
+          <div class="w3-col s4">
+            <a href="/cars/6">
+            <img class="card-img-top " src="https://i.postimg.cc/mDSnLM4N/Bathroom-Accessories-11.png" alt="Card image cap">
+            </a> 
+          </div>
+        
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+    </div>
+    <div class="w3-col s3  w3-center w3-hide-small">
+        <div class="search-box-4 sb-4">
+
+            <div class="p-4 w-full max-w-sm  sm:p-6 md:p-8 ">
+                <form action="{% url 'search' %}" method="" class="">
+                    <div class="py-1" style="width: 16rem;">
+                        <img class="card-img-top " src="https://i.postimg.cc/wvhZ1JmZ/free-Deliverydklfdsfdsfsf-1.png" alt="Card image cap">
+                      </div>
+                    <div class="mb-2">
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                            <option selected="true" disabled="disabled">Model</option>
+                            {% for model in model_search %}
+                              <option value="{{model}}">{{model}}</option>
+                            {% endfor %}
+                        </select> </div> 
+                                       
+                    <div class="flex items-start mb-2">
+                      <div class="form-group">
+                        <button class="w3-light-gray w3-button w3-round w3-block px-24">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="w3-row w3-hide-small">
+    <h5 class="w3-container w3-padding-16 w3-text-black"> <i class="fa fa-building" aria-hidden="true"></i> <b>Top Steel / Icon companies</b></h5>
+    <div class="w3-col m2  w3-center">
+      <img class="card-img-top "  style="width: 16rem;" src="https://i.postimg.cc/7ZX0YgYX/Untitled-design-41.png" alt="Card image cap">
+          
+    </div>
+    <div class="w3-col m2 w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/yNgx49JD/Untitled-design-39.png" alt="Card image cap">
+    </div>
+    <div class="w3-col m2  w3-center">  <img class="card-img-top "  src="https://i.postimg.cc/6609PzHH/Untitled-design-38.png" alt="Card image cap">
+    </div>
+    <div class="w3-col m2 w3-dark-grey w3-center">  <img class="card-img-top " src="https://i.postimg.cc/Kzfd0pZB/Untitled-design-35.png" alt="Card image cap">
+    </div>
+    <div class="w3-col m2 w3-black w3-center">  <img class="card-img-top " src="https://i.postimg.cc/KjKJt04Z/Untitled-design-36.png" alt="Card image cap">
+    </div>
+    <div class="w3-col m2 w3-purple w3-center">  <img class="card-img-top " src="https://i.postimg.cc/V6vRcKqj/Untitled-design-37.png" alt="Card image cap">
+    </div>
+   <br><br><br>
+
+   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h4 class="w3-text-black"><b>About Steel</b></h4>
+    <hr style="width:200px" class="w3-black">
+    <p>Introducing IconicSteel: A cutting-edge line of steel products merging modern aesthetics and unmatched strength. With sleek, timeless designs, each item is crafted from premium-quality steel, ensuring exceptional resilience and rust resistance. Versatile and eco-friendly, these products elevate various spaces, from elegant furniture and high-performance appliances to iconic architecture and exquisite hardware. Precision engineering guarantees top-notch quality and seamless functionality, while the use of recycled steel showcases our commitment to sustainability. Experience the perfect blend of innovation and sophistication with IconicSteel, making a lasting impression in residential, commercial, and outdoor environments, delivering beauty, durability, and sustainability in one comprehensive package..</p>
+</div>
+  </div>
+<!--small-->
+<div class="w3-hide-large w3-hide-medium">
+  <div class="">
+    <form action="{% url 'search' %}" method="" class="">
+        <div class="py-1" style="width: 12.5rem;">
+          <h4><b> Search Steel & Icon</b></h4>  
+        </div>
+        <div class="mb-5">
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                <option selected="true" disabled="disabled">Model</option>
+                {% for model in model_search %}
+                  <option value="{{model}}">{{model}}</option>
+                {% endfor %}
+            </select> </div> 
+                            
+        <div class="flex items-start mb-2">
+          <div class="form-group">
+            <button class="w3-light-gray w3-button w3-round w3-block ">
+                <i class="fa fa-search"></i> Search
+            </button>
+        </div>
+        </form>
+</div>
+
+<!--card-->
+
+<div class="py-4">
+  <div class="">
+      <!--Card 1-->
+   
+      <div class="rounded overflow-hidden ">
+        <div class="w3-row">
+          <div class="w3-col s12 ">
+            <a href="/cars/1">
+            <img class="card-img-top " src="https://i.postimg.cc/7YtNn9XT/Bathroom-Accessories-4.png" alt="Card image cap">
+             </a>          
+          </div>
+          <div class="w3-col s12">
+            <a href="/cars/5">
+            <img class="card-img-top " src="https://i.postimg.cc/nzTmcVPQ/Bathroom-Accessories-5.png" alt="Card image cap">
+            </a> 
+          </div>
+          <div class="w3-col s12">
+            <a href="/cars/4">
+            <img class="card-img-top " src="https://i.postimg.cc/T27bzwbz/Bathroom-Accessories-6.png" alt="Card image cap">
+            </a> 
+          </div>
+          <div class="w3-col s12">
+            <a href="/cars/3">
+            <img class="card-img-top " src="https://i.postimg.cc/8cMjf1yH/Bathroom-Accessories-8.png" alt="Card image cap">
+             </a>          
+          </div>
+          <div class="w3-col s12">
+            <a href="/cars/7">
+            <img class="card-img-top " src="https://i.postimg.cc/X7YRv2pZ/Bathroom-Accessories-10.png" alt="Card image cap">
+            </a> 
+          </div>
+          <div class="w3-col s12">
+            <a href="/cars/6">
+            <img class="card-img-top " src="https://i.postimg.cc/mDSnLM4N/Bathroom-Accessories-11.png" alt="Card image cap">
+            </a> 
+          </div>
+        
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+<br>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:2000px;margin-top:46px">
+    <h3 class="w3-container w3-padding-8 w3-text-black"> <i class="fa fa-building" aria-hidden="true"></i> 
+      <b>Top Steel companies</b></h3>
+    <!-- Automatic Slideshow Images -->
+    <div class="mySlides w3-display-container w3-center">
+      <img src="https://i.postimg.cc/7ZX0YgYX/Untitled-design-41.png" style="width:100%">
+     
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+      <img src="https://i.postimg.cc/yNgx49JD/Untitled-design-39.png" style="width:100%">
+     
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+      <img src="https://i.postimg.cc/6609PzHH/Untitled-design-38.png" style="width:100%">
+     
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+      <img src="https://i.postimg.cc/Kzfd0pZB/Untitled-design-35.png" style="width:100%">
+     
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+      <img src="https://i.postimg.cc/KjKJt04Z/Untitled-design-36.png" style="width:100%">
+     
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+      <img src="https://i.postimg.cc/V6vRcKqj/Untitled-design-37.png" style="width:100%">
+     
+    </div>
+  
+    <br>
+  
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+      <h2 class="w3-text-black">About Steel</h2>
+      <hr style="width:200px" class="w3-gray">
+      <p>Introducing IconicSteel: A cutting-edge line of steel products merging modern aesthetics and unmatched strength. With sleek, timeless designs, each item is crafted from premium-quality steel, ensuring exceptional resilience and rust resistance. Versatile and eco-friendly, these products elevate various spaces, from elegant furniture and high-performance appliances to iconic architecture and exquisite hardware. Precision engineering guarantees top-notch quality and seamless functionality, while the use of recycled steel showcases our commitment to sustainability. Experience the perfect blend of innovation and sophistication with IconicSteel, making a lasting impression in residential, commercial, and outdoor environments, delivering beauty, durability, and sustainability in one comprehensive package..</p>
+  </div>
+  <br>
+  <br><br>
+  
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
+</div>
+
+
+{% endblock %}

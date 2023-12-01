@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{% block title %} | Our tiles Inventory {% endblock %}
+{% block content %}
+
+{% load humanize %}
+<!-- Sub banner start -->
+
+
+<div class="w3-row w3-container ">
+
+    <div class="w3-col s8  w3-center w3-hide-small max-w-7xl">
+      <br><br><br>
+        <p>
+            <div class="w3-hide-small">
+              <div class="carousel px-10"
+              data-flickity='{ "freeScroll": true, }'>
+              <div class="carousel-cell">
+                <img src="https://i.postimg.cc/Gh2yHFwT/mix-blend-multiply-bg-blue-400jjjj.png" alt="Norway" style="width:80%">
+              
+              </div>
+              
+              <div class="carousel-cell"></div>
+              <div class="carousel-cell"></div>
+              <div class="carousel-cell"></div>
+            </div>
+              </div>
+        </p>
+      </div>
+  
+<!--big screen-->
+<div class="">
+    <div class="w3-col s3 w3-container py-2 w3-hide-small">
+      <br><br>
+      
+      <div class="py-2 w3-hide-small" style="width: 21rem;">
+        <img class="card-img-top " src="https://i.postimg.cc/W4V8jfBN/DFDF-1.png" alt="Card image cap">
+      </div>
+<form action="{% url 'marblesearch' %}" method="" class="w3-hide-small">
+    <div class="mb-2">
+        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+            <option selected="true" disabled="disabled">Model</option>
+            {% for model in model_search %}
+              <option value="{{model}}">{{model}}</option>
+            {% endfor %}
+        </select> </div> 
+    <div class="mb-2">
+        <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="city">
+            <option selected="true" disabled="disabled">Location</option>
+            {% for city in city_search %}
+              <option value="{{city}}">{{city}}</option>
+            {% endfor %}
+        </select> </div> 
+
+                
+    
+    <div class="flex items-start mb-6">
+      <div class="form-group">
+        <button class="w3-black w3-button w3-round w3-block">
+            <i class="fa fa-search"></i> Search
+        </button>
+    </div>
+    </form>
+
+    </div>   
+</div>
+<!--smallscreen-->
+
+<div class="w3-col  w3-hide-large w3-hide-medium">
+  <br><br>
+  <div class="py-4" style="width: 16rem;">
+    <img class="card-img-top " src="https://i.postimg.cc/W4V8jfBN/DFDF-1.png" alt="Card image cap">
+
+  </div>
+
+<!--big screen-->
+<form action="{% url 'marblesearch' %}" method="" class="">
+ 
+  <div class="mb-2 ">
+      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+          <option selected="true" disabled="disabled">Model</option>
+          {% for model in model_search %}
+            <option value="{{model}}">{{model}}</option>
+          {% endfor %}
+      </select> </div> 
+  <div class="mb-2">
+      <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="city">
+          <option selected="true" disabled="disabled">Location</option>
+          {% for city in city_search %}
+            <option value="{{city}}">{{city}}</option>
+          {% endfor %}
+      </select> </div> 
+
+
+
+
+          
+         
+
+              
+  
+  <div class="flex items-start mb-6">
+    <div class="form-group">
+      <button class="w3-black w3-button w3-round w3-block">
+          <i class="fa fa-search"></i> Search
+      </button>
+  </div>
+  </form>
+</div>   
+    <!--bigscreen-->
+      <div class="w3-col   w3-hide-small w3-center w3-hide-large w3-hide-medium">
+        <p>
+            <div class="">
+                <div class="mx-auto max-w-7xl px-4 sm:px-2 lg:px-2">
+                  <div class="mx-auto max-w-2xl  sm:py-2 lg:max-w-none lg:py-2">
+                    <h2 class="text-2xl font-bold text-gray-900"></h2>
+              
+                    <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                        {% for marble in marbles %}
+                        <div class="group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                          <img src="{{marble.marble_photo.url}}" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
+                        </div>
+                        <h3 class="mt-6 text-black font-bold ">
+                            <h1 class="title">
+                                <a href="{% url 'marble_detail' marble.id %}">{{marble.marble_title}}</a>
+                            </h1>
+                        </h3>
+                        <div class="w3-row py-2">
+                            <div class="w3-col s12  ">
+                                <button type="button" class="px-2  rounded-lg px-12 py-2 text-xs font-medium text-center text-black bg-blue-50 "><b>{{marble.condition}}</b></button>
+                                </div>
+                          
+                          </div>
+                      </div>
+              
+                      {% endfor %}
+                    </div>
+                  </div>
+              </div>
+              </div>
+        </p>
+      </div>
+
+  </div>
+  <br><br><br><br>
+         
+
+<!-- Featured car end -->
+  <!--bigscreen-->
+  <div class="w3-col   w3-center w3-hide-large w3-hide-medium">
+    <p>
+        <div class="">
+            
+        </div>
+    </p>
+  </div>
+
+</div>
+<br><br><br><br>
+     
+
+<!-- Featured car end -->
+
+
+<!-- Intro section end -->
+<div class="w3-hide-small w3-container w3-row w3-row-padding w3-padding-16">
+
+<br><br><br><br>
+<div class="w3-col s3 w3-margin-bottom">
+<span class="w3-center">
+<img src="https://i.postimg.cc/NfGxbv1S/o.png" alt="Norway" style="width:100%">
+</span>
+<div class="w3-container w3-white">
+  <p class="w3-text-gray"> 1 White Marble. 
+    2 Cream Marble</p>
+
+</div>
+</div>
+<div class="w3-col s3 w3-margin-bottom">
+  <span class="w3-center">
+   <img src="https://i.postimg.cc/7ZwrK6BD/111111111111.png" alt="Norway" style="width:100%">
+ </span>
+   <div class="w3-container w3-white">
+    <p class="w3-text-orange">Brown Marble,Black Marble</p>
+
+   </div>
+ </div>
+ <div class="w3-col s3 w3-margin-bottom">
+  <span class="w3-center">
+   <img src="https://i.postimg.cc/PrG03x6J/geanite.png" alt="Norway" style="width:100%">
+ </span>
+   <div class="w3-container w3-white">
+     <p class="w3-text-gray"> Black Granite-
+      Brown Granite </p>
+
+
+   </div>
+ </div>
+<div class="w3-col s3 w3-margin-bottom">
+  <span class="w3-center">
+   <img src="https://i.postimg.cc/7hvGJ0qS/kkkbbb.png" alt="Norway" style="width:100%">
+ </span>
+   <div class="w3-container w3-white">
+     <p class="w3-text-gray">white granite, Brown Granite</p>
+  
+   </div>
+ </div>
+</div>
+<!-- small screen -->
+<div class="w3-hide-large w3-hide-medium w3-container w3-row  w3-padding-16">
+
+  <div class="w3-col s6 w3-margin-bottom">
+    <span class="w3-center">
+    <img src="https://i.postimg.cc/NfGxbv1S/o.png" alt="Norway" style="width:100%">
+    </span>
+    <div class="w3-container w3-white">
+      <p class="w3-text-gray">White MarblemCream Marble</p>
+    
+    </div>
+    </div>
+    <div class="w3-col s6 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/7ZwrK6BD/111111111111.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-container w3-white">
+        <p class="w3-text-orange">Brown Marble,Black Marble</p>
+    
+       </div>
+     </div>
+    
+     <div class="w3-col s6 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/PrG03x6J/geanite.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-container w3-white">
+         <p class="w3-text-gray"> Black Granite-
+          Brown Granite </p>
+    
+    
+       </div>
+     </div>
+    <div class="w3-col s6 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/7hvGJ0qS/kkkbbb.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-container w3-white">
+         <p class="w3-text-gray">white granite, Brown Granite</p>
+      
+       </div>
+     </div>
+</div>
+<br><br>
+
+<div class="w3-hide-small w3-hide-medium w3-hide-large swiffy-slider slider-item-show4 slider-nav-outside slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio-32x9 bg-white shadow-lg py-3 py-lg-4" data-slider-nav-autoplay-interval="2000">
+<div class="slider-container">
+  <div><img src="../assets/img/brandlogos/css-3.svg" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/DWLogoColor_sm.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/javascript-1.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/bootstrap-5.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/eslint-1.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/github-2.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/html-1.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/svelte-wordmark-1.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/next-js.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/webpack-icon.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/react-2.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/star-wars-4.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/vue-9.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/meteor-5.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/nuxt-2.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/nodejs-1.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/prettier-2.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/angular-icon-1.svg" loading="lazy" alt="..."></div>
+  <div><img src="../assets/img/brandlogos/github-icon.svg" loading="lazy" alt="..."></div>
+</div>
+
+<button type="button" class="slider-nav" aria-label="Go left"></button>
+<button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+</div>
+
+
+{% endblock %}

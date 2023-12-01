@@ -1,0 +1,263 @@
+{% extends 'store/layouts/main.html' %}
+
+{% block content %}
+<br>
+<div class="py-2 bg-light">
+  
+    <div class="container">
+        <a class="text-dark" href="{% url 'home' %}"><b> Home </b></a>
+        <span class="text-primary"><b>/</b></span>
+        <a class="text-dark" href="{% url 'checkout' %}"> <b> Checkout</b> </a>
+    </div>
+</div>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="w3-hide-large w3-hide-medium w3-hide-small">
+                <img
+                height="35px"
+                src="https://i.postimg.cc/rppCLzN2/fff.png"
+                alt="First slide"
+              />  
+
+            </h1>
+
+
+<!--adding new catergory-->
+
+<div class=" w3-content w3-center  w3-hide-medium w3-hide-large" style="max-width:350px" id="band">
+    <div class="">
+      <div class="w3-col s4">
+         <a
+            {% if 'cements' in request.path %}
+            class=" "
+            {% else %}
+            class=""
+            {% endif %}
+             href="/cements/1">
+       
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/506G0NCp/Cement-5.png">
+      </a>
+      </div>
+      <div class="w3-col s4">
+        <a
+            {% if 'cars' in request.path %}
+            class=" "
+            {% else %}
+            class=""
+            {% endif %}
+             href="/tiles/1"> <img 
+        height="110px"
+        src="https://i.postimg.cc/QMRPFZJ3/Cement-6.png">
+      </a>
+      </div>
+      <div class="w3-col s4">
+        <a
+          {% if 'tiles' in request.path %}
+          class=" "
+          {% else %}
+          class=""
+          {% endif %}
+           href="/tiles/2">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/d1sVH01q/Cement-11.png"></a></div>
+    </div>
+    <!--second-->
+    <div class="w3-row">
+      <div class="w3-col s4">
+        <a
+      {% if 'marbles' in request.path %}
+      class=" "
+      {% else %}
+      class=""
+      {% endif %}
+       href="/marbles/3">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/zXxqV3bY/Cement-7.png">
+      </a>
+      </div>
+      <div class="w3-col s4">
+       <a
+          {% if 'tiles' in request.path %}
+          class=" "
+          {% else %}
+          class=""
+          {% endif %}
+           href="/marbles/4">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/kXvst1bL/Cement-12.png"></a></div>
+      <div class="w3-col s4">
+        <a
+        {% if 'tiles' in request.path %}
+        class=" "
+        {% else %}
+        class=""
+        {% endif %}
+         href="/marbles/4">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/GmK1qnBR/Cement-13.png">
+      </a>
+      </div>
+    </div>
+</div>
+
+<!--large-->
+
+
+<div class="w3-hide-small w3-hide-medium  w3-content w3-center"  style="max-width:700px"  id="band">
+    <div class="w3-row">
+      <div class="w3-col s2">
+         <a
+            {% if 'cements' in request.path %}
+            class=" "
+            {% else %}
+            class=""
+            {% endif %}
+             href="{% url 'cementsearch' %}">
+       
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/506G0NCp/Cement-5.png">
+      </a>
+      </div>
+      <div class="w3-col s2">
+        <a
+            {% if 'cars' in request.path %}
+            class=" "
+            {% else %}
+            class=""
+            {% endif %}
+             href="{% url 'search' %}"> <img 
+        height="110px"
+        src="https://i.postimg.cc/QMRPFZJ3/Cement-6.png">
+      </a>
+      </div>
+      <div class="w3-col s2">
+        <a
+          {% if 'tiles' in request.path %}
+          class=" "
+          {% else %}
+          class=""
+          {% endif %}
+           href="{% url 'tilesearch' %}">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/d1sVH01q/Cement-11.png"></a></div>
+    <!--second-->
+  
+      <div class="w3-col s2">
+        <a
+      {% if 'marbles' in request.path %}
+      class=" "
+      {% else %}
+      class=""
+      {% endif %}
+       href="{% url 'tilesearch' %}">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/zXxqV3bY/Cement-7.png">
+      </a>
+      </div>
+      <div class="w3-col s2">
+       <a
+          {% if 'tiles' in request.path %}
+          class=" "
+          {% else %}
+          class=""
+          {% endif %}
+           href="{% url 'marblesearch' %}">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/kXvst1bL/Cement-12.png"></a></div>
+      <div class="w3-col s2">
+        <a
+          {% if 'tiles' in request.path %}
+          class=" "
+          {% else %}
+          class=""
+          {% endif %}
+           href="{% url 'marblesearch' %}">
+        <img 
+        height="110px"
+        src="https://i.postimg.cc/GmK1qnBR/Cement-13.png">
+      </a>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row w3-hide-small w3-hide-large w3-hide-medium ">
+            {% for item in category %}
+                <div class="col-md-3">
+                    <div class="">
+                        <a href="{% url 'collectionsview' item.slug %}">
+                            <div class="card-body">
+                                <div class="category-image">
+                                  
+                                    <img
+                                    height="120px"
+                                    src="{{ item.image.url }}"
+                                    alt="First slide"
+                                  />  
+                                </div>
+                               
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    <!--small-->
+    <div class="row w3-hide-large w3-hide-medium w3-hide-small w3-hide-large">
+        {% for item in category %}
+        
+                    <a href="{% url 'collectionsview' item.slug %}">
+                        <div class="card-body">
+                            <div class="category-image">
+                                <img
+                                    height="90px"
+                                    src="{{ item.image.url }}"
+                                    alt="First slide"
+                                  />  
+                            </div>
+                           
+                        </div>
+                    </a>
+              
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock content %}
