@@ -41,4 +41,3 @@ requests-oauthlib
 sqlparse
 urllib3
 whitenoise
-gunicorn
